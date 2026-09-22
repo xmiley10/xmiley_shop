@@ -303,7 +303,7 @@ footer{margin-top:40px;background:#ff5ca8;color:white;text-align:center;padding:
 <body>
   <header>
 
-<h1>🍭🧁 Xmiley Shop 🍭🧁</h1>
+<h1>🍭🧁 Xmiley Shop 🧁🍭</h1>
 
 <p>ร้านเติมเกม ราคาน่ารัก เติมไว </p>
 
@@ -414,13 +414,13 @@ footer{margin-top:40px;background:#ff5ca8;color:white;text-align:center;padding:
 <p>ขอบคุณที่ใช้บริการค่ะ</p>
 
 </footer>
+  </footer>
+
 <!-- 🛒 หน้าต่างสั่งซื้อ -->
 
 <div class="modal" id="orderModal">
 
   <div class="modal-box">
-
-    <!-- ❌ ปุ่มปิด -->
 
     <button class="close" onclick="closeModal()">×</button>
 
@@ -428,17 +428,7 @@ footer{margin-top:40px;background:#ff5ca8;color:white;text-align:center;padding:
 
     <p id="selectedPackage"></p>
 
-    <input
-
-      type="text"
-
-      id="uid"
-
-      placeholder="กรอก UID เกม"
-
-    >
-
-    <!-- ✅ ปุ่มยืนยัน -->
+    <input type="text" id="uid" placeholder="กรอก UID เกม">
 
     <button class="confirm" onclick="confirmOrder()">
 
@@ -449,81 +439,8 @@ footer{margin-top:40px;background:#ff5ca8;color:white;text-align:center;padding:
   </div>
 
 </div>
-    <h2>🛒 สั่งซื้อ</h2>
 
-    <p id="selectedPackage"></p>
-
-    <input
-
-      type="text"
-
-      id="uid"
-
-      placeholder="กรอก UID เกม"
-
-    >
-
-    <button class="confirm" onclick="confirmO
-      <script>
-
-let selectedPackage = "";
-
-let selectedPrice = "";
-
-document.querySelectorAll(".buy").forEach(function(button) {
-
-  button.addEventListener("click", function() {
-
-    const card = button.closest(".card");
-
-    selectedPackage = card.querySelector("h3").textContent;
-
-    selectedPrice = card.querySelector(".price").textContent;
-
-    document.getElementById("selectedPackage").textContent =
-
-      selectedPackage + " — " + selectedPrice;
-
-    document.getElementById("orderModal").style.display = "flex";
-
-  });
-
-});
-
-function closeModal() {
-
-  document.getElementById("orderModal").style.display = "none";
-
-}
-
-function confirmOrder() {
-
-  const uid = document.getElementById("uid").value.trim();
-
-  if (uid === "") {
-
-    alert("กรุณากรอก UID ก่อนค่ะ");
-
-    return;
-
-  }
-
-  alert(
-
-    "🩷 รายการสั่งซื้อ\n\n" +
-
-    selectedPackage + "\n" +
-
-    "ราคา: " + selectedPrice + "\n" +
-
-    "UID: " + uid
-
-  );
-
-}
-
-</script>
-      </div>
+<!-- ⚙️ ระบบสั่งซื้อ -->
 
 <script>
 
@@ -560,7 +477,6 @@ function closeModal() {
 function confirmOrder() {
 
   const uid = document.getElementById("uid").value.trim();
-
   if (uid === "") {
 
     alert("กรุณากรอก UID ก่อนค่ะ");
@@ -589,11 +505,8 @@ function confirmOrder() {
 
 </html>
 
-    </body>
+  
 
-</html>
-
-      
       
     
     
