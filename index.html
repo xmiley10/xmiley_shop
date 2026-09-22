@@ -143,6 +143,117 @@ width:90%;
 .info{margin-top:30px;background:white;border-radius:18px;padding:25px;text-align:center;border:1px solid #ffd0e5}
 
 footer{margin-top:40px;background:#ff5ca8;color:white;text-align:center;padding:18px}
+/* 🛒 หน้าต่างสั่งซื้อ */
+
+.modal{
+
+  display:none;
+
+  position:fixed;
+
+  z-index:999;
+
+  left:0;
+
+  top:0;
+
+  width:100%;
+
+  height:100%;
+
+  background:#00000066;
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:20px;
+
+}
+
+.modal-box{
+
+  background:white;
+
+  width:100%;
+
+  max-width:400px;
+
+  border-radius:20px;
+
+  padding:25px;
+
+  text-align:center;
+
+  box-shadow:0 10px 30px #00000030;
+
+}
+
+.modal-box h2{
+
+  color:#ff4f9a;
+
+  margin-top:0;
+
+}
+
+.modal-box input{
+
+  width:100%;
+
+  padding:12px;
+
+  border:1px solid #ffd0e5;
+
+  border-radius:12px;
+
+  margin:10px 0;
+
+  font-size:16px;
+
+  outline:none;
+
+}
+
+.confirm{
+
+  background:#ff5ca8;
+
+  color:white;
+
+  border:0;
+
+  border-radius:25px;
+
+  padding:11px;
+
+  width:100%;
+
+  font-size:16px;
+
+  cursor:pointer;
+
+}
+
+.close{
+
+  background:#eee;
+
+  color:#555;
+
+  border:0;
+
+  border-radius:25px;
+
+  padding:10px;
+
+  width:100%;
+
+  margin-top:8px;
+
+  cursor:pointer;
+
+}
 
 </style>
 
@@ -257,11 +368,157 @@ footer{margin-top:40px;background:#ff5ca8;color:white;text-align:center;padding:
 </div>
     <footer>
 
-<p>🩷 Smiley Shop © 2026</p>
+<p>🩷 Smiley Shop </p>
 
 <p>ขอบคุณที่ใช้บริการค่ะ</p>
 
 </footer>
+  <!-- 🛒 หน้าต่างสั่งซื้อ -->
+
+<div class="modal" id="orderModal">
+
+  <div class="modal-box">
+
+    <h2>🛒 สั่งซื้อ</h2>
+
+    <p id="selectedPackage"></p>
+
+    <input
+
+      type="text"
+
+      id="uid"
+
+      placeholder="กรอก UID เกม"
+
+    >
+
+    <button class="confirm" onclick="confirmO
+      <script>
+
+let selectedPackage = "";
+
+let selectedPrice = "";
+
+document.querySelectorAll(".buy").forEach(function(button) {
+
+  button.addEventListener("click", function() {
+
+    const card = button.closest(".card");
+
+    selectedPackage = card.querySelector("h3").textContent;
+
+    selectedPrice = card.querySelector(".price").textContent;
+
+    document.getElementById("selectedPackage").textContent =
+
+      selectedPackage + " — " + selectedPrice;
+
+    document.getElementById("orderModal").style.display = "flex";
+
+  });
+
+});
+
+function closeModal() {
+
+  document.getElementById("orderModal").style.display = "none";
+
+}
+
+function confirmOrder() {
+
+  const uid = document.getElementById("uid").value.trim();
+
+  if (uid === "") {
+
+    alert("กรุณากรอก UID ก่อนค่ะ");
+
+    return;
+
+  }
+
+  alert(
+
+    "🩷 รายการสั่งซื้อ\n\n" +
+
+    selectedPackage + "\n" +
+
+    "ราคา: " + selectedPrice + "\n" +
+
+    "UID: " + uid
+
+  );
+
+}
+
+</script>
+      </div>
+
+<script>
+
+let selectedPackage = "";
+
+let selectedPrice = "";
+
+document.querySelectorAll(".buy").forEach(function(button) {
+
+  button.addEventListener("click", function() {
+
+    const card = button.closest(".card");
+
+    selectedPackage = card.querySelector("h3").textContent;
+
+    selectedPrice = card.querySelector(".price").textContent;
+
+    document.getElementById("selectedPackage").textContent =
+
+      selectedPackage + " — " + selectedPrice;
+
+    document.getElementById("orderModal").style.display = "flex";
+
+  });
+
+});
+
+function closeModal() {
+
+  document.getElementById("orderModal").style.display = "none";
+
+}
+
+function confirmOrder() {
+
+  const uid = document.getElementById("uid").value.trim();
+
+  if (uid === "") {
+
+    alert("กรุณากรอก UID ก่อนค่ะ");
+
+    return;
+
+  }
+
+  alert(
+
+    "🩷 รายการสั่งซื้อ\n\n" +
+
+    selectedPackage + "\n" +
+
+    "ราคา: " + selectedPrice + "\n" +
+
+    "UID: " + uid
+
+  );
+
+}
+
+</script>
+
+</body>
+
+</html>
+
     </body>
 
 </html>
