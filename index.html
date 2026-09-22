@@ -542,19 +542,19 @@ footer{margin-top:40px;background:#ff5ca8;color:white;text-align:center;padding:
   </div>
 
 </div>
-
 <script>
 
 let selectedPackage = "";
 
 let selectedPrice = "";
 
+let currentOrderMessage = "";
+
 document.querySelectorAll(".buy").forEach(function(button) {
 
   button.addEventListener("click", function() {
 
     const card = button.closest(".card");
-
     selectedPackage = card.querySelector("h3").textContent;
 
     selectedPrice = card.querySelector(".price").textContent;
@@ -568,46 +568,22 @@ document.querySelectorAll(".buy").forEach(function(button) {
   });
 
 });
-
 function closeModal() {
 
   document.getElementById("orderModal").style.display = "none";
 
 }
 
-  function confirmOrder() {
+function confirmOrder() {
 
   const uid = document.getElementById("uid").value.trim();
 
   if (uid === "") {
-
     alert("กรุณากรอก UID ก่อนค่ะ");
 
     return;
 
   }
-    function confirmOrder() {
-
-  ...
-
-}
-
-function copyOrder() {
-
-  const orderText = document.getElementById("orderInfo").textContent;
-
-  navigator.clipboard.writeText(orderText).then(function() {
-
-    alert("คัดลอกออเดอร์แล้วค่ะ 🩷");
-
-  });
-
-}
-    function openInstagram() {
-
-  window.open("https://www.instagram.com/xmiley_.shop/", "_blank");
-
-}
 
   const now = new Date();
 
@@ -618,12 +594,11 @@ function copyOrder() {
     String(now.getMonth() + 1).padStart(2, "0") +
 
     String(now.getDate()).padStart(2, "0");
-
   const orderNumber =
 
     "XM-" + date + "-" + Math.floor(100 + Math.random() * 900);
 
-  const orderMessage =
+  currentOrderMessage =
 
     "🩷 XMILEY SHOP\n\n" +
 
@@ -631,9 +606,8 @@ function copyOrder() {
 
     "🧾 Order: " + orderNumber + "\n\n" +
 
-    "📦 รายการ: " + selectedPackage + "\n\n" +
-
-    "💰 ราคา: " + selectedPrice + "\n\n" +
+    "📦 รายการ: " + selectedPackage + "\n\n"
+       "💰 ราคา: " + selectedPrice + "\n\n" +
 
     "🎮 UID: " + uid + "\n\n" +
 
@@ -641,31 +615,40 @@ function copyOrder() {
 
     "xmiley_.shop";
 
-  document.getElementById("orderInfo").textContent = orderMessage;
+  document.getElementById("orderInfo").textContent =
+
+    currentOrderMessage;
 
   document.getElementById("orderModal").style.display = "none";
 
-  document.getElementById("orderCard").style.display = "flex";
+  document.getElementById("orderCard").styl
+    
+    }
+
+function copyOrder() {
+
+  navigator.clipboard.writeText(currentOrderMessage).then(function() {
+
+    alert("คัดลอกออเดอร์แล้วค่ะ 🩷");
+
+  });
 
 }
 
-  }
+function openInstagram() {
+  window.open(
 
-  alert(
+    "https://www.instagram.com/xmiley_.shop/",
 
-    "🩷 รายการสั่งซื้อ\n\n" +
-
-    selectedPackage + "\n" +
-
-    "ราคา: " + selectedPrice + "\n" +
-
-    "UID: " + uid
+    "_blank"
 
   );
 
 }
 
 </script>
+  
+  
 
 </body>
 
