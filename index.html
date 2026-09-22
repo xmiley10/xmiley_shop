@@ -91,13 +91,13 @@ header p{margin:0}
 
 }
 
-/* 📱 iPad */
+/* 📱 Tablet / iPad — 2 เรทราคาต่อแถว */
 
 @media (min-width: 601px) and (max-width: 1000px) {
 
   .products {
 
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
     gap: 12px;
 
@@ -110,19 +110,6 @@ header p{margin:0}
   }
 
 }
-  
-/* 📱 Tablet / iPad */
-
-@media (min-width: 601px) and (max-width: 1000px) {
-
-  .products {
-
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-
-  }
-
-}
-
 .card{
 background:white;
 border:1px solid #ffd0e5;
