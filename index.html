@@ -550,7 +550,7 @@ let selectedPrice = "";
 
 let currentOrderMessage = "";
 
-document.querySelectorAll(".buy").forEach(function(button) {
+
 
   button.addEventListener("click", function() {
 
@@ -573,7 +573,9 @@ function closeModal() {
   document.getElementById("orderModal").style.display = "none";
 
 }
+  document.getElementById("orderModal").style.display = "none";
 
+}
 function confirmOrder() {
 
   const uid = document.getElementById("uid").value.trim();
@@ -606,7 +608,7 @@ function confirmOrder() {
 
     "🧾 Order: " + orderNumber + "\n\n" +
 
-    "📦 รายการ: " + selectedPackage + "\n\n"
+    "📦 รายการ: " + selectedPackage + "\n\n"+
        "💰 ราคา: " + selectedPrice + "\n\n" +
 
     "🎮 UID: " + uid + "\n\n" +
@@ -623,7 +625,7 @@ function confirmOrder() {
 
   document.getElementById("orderCard").styl
     
-    }
+    
 
 function copyOrder() {
 
