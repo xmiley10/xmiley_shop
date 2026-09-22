@@ -161,7 +161,7 @@ footer{margin-top:40px;background:#ff5ca8;color:white;text-align:center;padding:
 
   height:100%;
 
-  background:#00000066;
+  background:rgba(0,0,0,0.45);
 
   align-items:center;
 
@@ -173,6 +173,8 @@ footer{margin-top:40px;background:#ff5ca8;color:white;text-align:center;padding:
 
 .modal-box{
 
+  position:relative;
+
   background:white;
 
   width:100%;
@@ -181,11 +183,11 @@ footer{margin-top:40px;background:#ff5ca8;color:white;text-align:center;padding:
 
   border-radius:20px;
 
-  padding:25px;
+  padding:30px 25px 25px;
 
   text-align:center;
 
-  box-shadow:0 10px 30px #00000030;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
 
 }
 
@@ -193,7 +195,7 @@ footer{margin-top:40px;background:#ff5ca8;color:white;text-align:center;padding:
 
   color:#ff4f9a;
 
-  margin-top:0;
+  margin:0 0 15px;
 
 }
 
@@ -207,7 +209,7 @@ footer{margin-top:40px;background:#ff5ca8;color:white;text-align:center;padding:
 
   border-radius:12px;
 
-  margin:10px 0;
+  margin:10px 0 15px;
 
   font-size:16px;
 
@@ -215,11 +217,15 @@ footer{margin-top:40px;background:#ff5ca8;color:white;text-align:center;padding:
 
 }
 
+/* ✅ ปุ่มยืนยัน */
+
 .confirm{
+
+  display:block;
 
   background:#ff5ca8;
 
-  color:white;
+  color:white !important;
 
   border:0;
 
@@ -231,11 +237,46 @@ footer{margin-top:40px;background:#ff5ca8;color:white;text-align:center;padding:
 
   font-size:16px;
 
+  font-weight:bold;
+
   cursor:pointer;
 
 }
 
+/* ❌ ปุ่มปิดมุมขวาบน */
+
 .close{
+
+  position:absolute;
+
+  top:10px;
+
+  right:15px;
+
+  background:none;
+
+  border:0;
+
+  color:#999;
+
+  font-size:25px;
+
+  font-weight:bold;
+
+  cursor:pointer;
+
+  width:auto;
+
+  padding:0;
+
+}
+
+.close:hover{
+
+  color:#ff4f9a;
+
+}
+  
 
   background:#eee;
 
@@ -373,12 +414,41 @@ footer{margin-top:40px;background:#ff5ca8;color:white;text-align:center;padding:
 <p>ขอบคุณที่ใช้บริการค่ะ</p>
 
 </footer>
-  <!-- 🛒 หน้าต่างสั่งซื้อ -->
+<!-- 🛒 หน้าต่างสั่งซื้อ -->
 
 <div class="modal" id="orderModal">
 
   <div class="modal-box">
 
+    <!-- ❌ ปุ่มปิด -->
+
+    <button class="close" onclick="closeModal()">×</button>
+
+    <h2>🛒 สั่งซื้อ</h2>
+
+    <p id="selectedPackage"></p>
+
+    <input
+
+      type="text"
+
+      id="uid"
+
+      placeholder="กรอก UID เกม"
+
+    >
+
+    <!-- ✅ ปุ่มยืนยัน -->
+
+    <button class="confirm" onclick="confirmOrder()">
+
+      ยืนยันคำสั่งซื้อ
+
+    </button>
+
+  </div>
+
+</div>
     <h2>🛒 สั่งซื้อ</h2>
 
     <p id="selectedPackage"></p>
